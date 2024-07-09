@@ -1,0 +1,19 @@
+<svg width="650" height="650" viewBox="-40 -130 750 750" fill="none" xmlns="http://www.w3.org/2000/svg" class="main">
+<polygon points="329,6 610,490 50,490" stroke="white" stroke-width="52" class="outer"/>
+<polygon points="329,410 410,275 250,275" stroke="white" stroke-width="34" class="inner"/>
+    <style>
+        <![CDATA[
+            @keyframes rotation {
+                0% {transform: rotate(0deg)}
+                100% {transform: rotate(360deg)}
+            }
+            polygon.inner {
+                animation: rotation 4s linear reverse infinite;
+                transform-origin: 330px 325px;
+            }
+            svg {
+                background-color: black;
+            }
+        ]]>
+    </style>  
+</svg>

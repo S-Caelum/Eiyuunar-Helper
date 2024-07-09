@@ -1,0 +1,287 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+// ! Аккаунт 
+
+model Player {
+  Id        String      @id @default(auto()) @map("_id") @db.ObjectId
+  Name      String      @unique
+  IsGameMaster Boolean 
+  Character Character[]
+  Posts     Post[]
+}
+
+// ! ПЕРСОНАЖ
+
+model Post {
+  Id       String @id @default(auto()) @map("_id") @db.ObjectId
+  Body     String
+  Player   Player @relation(fields: [PlayerId], references: [Id])
+  PlayerId String @db.ObjectId
+}
+
+model Character {
+  Id                 String              @id @default(auto()) @map("_id") @db.ObjectId
+  Owner              Owner               @default(MASTER)
+  Player             Player              @relation(fields: [PlayerId], references: [Id])
+  PlayerId           String              @db.ObjectId
+  Title              String?
+  Name               String
+  About              String?
+  Height             Int
+  Weight             Int
+  CarryCapacity      Int
+  CorruptionPoints   Int
+  CharacterInventory CharacterInventory?
+
+  MartialCurrentExp    Int?
+  MartialProficiencyID String         @db.ObjectId
+  MartialProficiency   MartialProf    @relation(fields: [MartialProficiencyID], references: [Id])
+  MartialSkills        MartialSkill[]
+
+  MagicCurrentExp    Int?
+  MagicProficiencyID String        @db.ObjectId
+  MagicProficiency   MagicProf     @relation(fields: [MagicProficiencyID], references: [Id])
+  OriginSpellsIDs    String[]      @db.ObjectId
+  OriginSpells       OriginSpell[] @relation(fields: [OriginSpellsIDs], references: [Id])
+  WayreArtsIDs       String[]      @db.ObjectId
+  WayreArts          WayreArt[]    @relation(fields: [WayreArtsIDs], references: [Id])
+
+  AethelianProficiencyID String            @db.ObjectId
+  AethelianProficiency   AethelianProf     @relation(fields: [AethelianProficiencyID], references: [Id])
+  AethelianSkillsIDs     String[]          @db.ObjectId
+  AethelianSkills        AethelianSkills[] @relation(fields: [AethelianSkillsIDs], references: [Id])
+}
+
+type StatBlock {
+  Vitality  Int
+  Endurance Int
+  Speed     Int
+  Reaction  Int
+  Academics Int
+  Wisdom    Int
+}
+
+// ! ВЛАДЕНИЕ КЛАССИЧЕСКИМ ОРУЖИЕМ
+model MartialProf {
+  Id               String      @id @default(auto()) @map("_id") @db.ObjectId
+  Level            Int
+  ModificatorBonus Int?
+  AttackBonus      Int?
+  DefenceBonus     Int?
+  MartialSkillsCap Int?
+  Owners           Character[]
+}
+
+model MartialSkill {
+  Id           String    @id @default(auto()) @map("_id") @db.ObjectId
+  Name         String
+  MartialLevel Int
+  Description  String
+  Owner        Character @relation(fields: [OwnerId], references: [Id])
+  OwnerId      String    @db.ObjectId
+}
+
+// ! ВЛАДЕНИЕ МАГИЕЙ
+
+model MagicProf {
+  Id               String      @id @default(auto()) @map("_id") @db.ObjectId
+  Level            Int
+  ModificatorBonus Int
+  MagicDamageBonus Int
+  SpellsLevel      DamageTier
+  Owners           Character[]
+}
+
+model WayreArt {
+  Id              String      @id @default(auto()) @map("_id") @db.ObjectId
+  Name            String
+  MagicLevel      Int
+  Desctiption     String
+  WayreCorruption Int
+  OwnerIDs        String[]    @db.ObjectId
+  Owners          Character[] @relation(fields: [OwnerIDs], references: [Id])
+}
+
+model OriginSpell {
+  Id          String      @id @default(auto()) @map("_id") @db.ObjectId
+  Name        String
+  MagicLevel  Int
+  Description String
+  OwnerIDs    String[]    @db.ObjectId
+  Owners      Character[] @relation(fields: [OwnerIDs], references: [Id])
+}
+
+// ! ВЛАДЕНИЕ ТЕХНОЛОГИЯМИ ИТЭЛЯ
+
+model AethelianProf {
+  Id                   String      @id @default(auto()) @map("_id") @db.ObjectId
+  AethelianModifier    Int?
+  AethelianDamageBonus Int?
+  AethelianUsageBonus  Int?
+  RequiredMagicLevel   Int
+  RequiredMartialLevel Int
+  Owners               Character[]
+}
+
+model AethelianSkills {
+  Id              String      @id @default(auto()) @map("_id") @db.ObjectId
+  Name            String
+  MagicLevel      Int
+  MartialLevel    Int
+  WayreCorruption Int?
+  OwnersIDs       String[]    @db.ObjectId
+  Owners          Character[] @relation(fields: [OwnersIDs], references: [Id])
+}
+
+enum Owner {
+  MASTER
+  PLAYER
+}
+
+// ! Инвентарь
+
+model CharacterInventory {
+  Id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  MainHand     String   @db.ObjectId
+  OffHand      String   @db.ObjectId
+  Head         String   @db.ObjectId
+  Body         String   @db.ObjectId
+  Arms         String   @db.ObjectId
+  Gloves       String[] @db.ObjectId
+  Legs         String   @db.ObjectId
+  Shoes        String[] @db.ObjectId
+  Rings        String[] @db.ObjectId
+  LeftEarring  String   @db.ObjectId
+  RightEarring String   @db.ObjectId
+  Amulet       String   @db.ObjectId
+  Bracers      String[] @db.ObjectId
+  Insignia     String   @db.ObjectId
+
+  CharacterId String    @unique @db.ObjectId
+  Character   Character @relation(fields: [CharacterId], references: [Id])
+
+  ItemsIDs String[] @db.ObjectId
+  Items    Item[]   @relation(fields: [ItemsIDs], references: [Id])
+}
+
+// ! МАГАЗИН
+
+model Item {
+  Id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  Name        String
+  Type        ItemType @default(Miscellaneous)
+  Rarity      Rarity   @default(Common)
+  Weapon      Weapon?
+  Armor       Armor?
+  Jewelry     Jewelry?
+  Weight      Int
+  Description String
+  Price       Int
+
+  CharacterInventoryIDs String[]             @db.ObjectId
+  CharacaterInventories CharacterInventory[] @relation(fields: [CharacterInventoryIDs], references: [Id])
+}
+
+model Weapon {
+  Id          String       @id @default(auto()) @map("_id") @db.ObjectId
+  Damage      Int
+  Class       DamageType
+  Tier        DamageTier
+  Enchantment Enchantment?
+  ItemId      String       @unique @db.ObjectId
+  Item        Item         @relation(fields: [ItemId], references: [Id])
+}
+
+type Enchantment {
+  MagicDamageBonus     Int?
+  AethelianDamageBonus Int?
+  AttackBonus          Int?
+  ModificatorBonus     Int?
+}
+
+model Armor {
+  Id               String     @id @default(auto()) @map("_id") @db.ObjectId
+  DamageReduction  Int
+  BodyPart         BodyPart
+  DamageProtection ArmorClass
+  ItemId           String     @unique @db.ObjectId
+  Item             Item       @relation(fields: [ItemId], references: [Id])
+}
+
+type ArmorClass {
+  Slash  DamageTier
+  Pierce DamageTier
+  Blunt  DamageTier
+}
+
+model Jewelry {
+  Id          String       @id @default(auto()) @map("_id") @db.ObjectId
+  Type        JewelryType
+  Enchantment Enchantment?
+  ItemId      String       @unique @db.ObjectId
+  Item        Item         @relation(fields: [ItemId], references: [Id])
+}
+
+enum BodyPart {
+  MainHand
+  SecondaryHand
+  Head
+  Body
+  L_Hand
+  R_Hand
+  Gloves
+  L_Leg
+  R_Leg
+  Shoes
+}
+
+enum JewelryType {
+  Ring
+  Amulet
+  LeftEarring
+  RightEarring
+  Insignia
+}
+
+enum ItemType {
+  Weapon
+  Armor
+  Jewelry
+  Cures
+  Miscellaneous
+}
+
+enum DamageTier {
+  I
+  II
+  III
+  EX
+}
+
+enum DamageType {
+  Slash
+  Pierce
+  Blunt
+}
+
+enum Rarity {
+  Common
+  Uncommon
+  Rare
+  Unique
+  Legendary
+}

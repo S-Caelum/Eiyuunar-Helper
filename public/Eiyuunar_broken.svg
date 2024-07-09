@@ -1,0 +1,140 @@
+<svg width="569" height="556" viewBox="0 0 569 556" fill="none" xmlns="http://www.w3.org/2000/svg" class="main">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M259.674 43L284.5 0L309.326 43L364.938 139.323L332.709 169.501L284.5 86L156.798 307.186L124.601 276.954L259.674 43ZM385.52 245.856L384.304 172.866L544.163 449.75L568.989 492.75H519.337H272.942L267.206 449.75H494.511L373.966 240.959L385.52 245.856ZM192.618 449.75H74.4888L135.399 344.25H85.7471L24.8367 449.75L0.0106201 492.75H49.6627H198.355L192.618 449.75Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M259.674 43L284.5 0L309.326 43L364.938 139.323L332.709 169.501L284.5 86L156.798 307.186L124.601 276.954L259.674 43ZM385.52 245.856L384.304 172.866L544.163 449.75L568.989 492.75H519.337H272.942L267.206 449.75H494.511L373.966 240.959L385.52 245.856ZM192.618 449.75H74.4888L135.399 344.25H85.7471L24.8367 449.75L0.0106201 492.75H49.6627H198.355L192.618 449.75Z" fill="white" class="MainOuter"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M82.8209 294.014L57 280.5L65.8738 300.594L82.8209 294.014ZM110.249 308.37L101.896 321.592L113.954 310.309L110.249 308.37Z" fill="white" class="MainShards_1"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M396 167.013L409.634 169.245L396 151V167.013Z" fill="white" class="MainShards_2"/>
+<path d="M412.5 52L378.5 126L405 108.5L412.5 52Z" fill="white" class="MainShards_1"/>
+<path d="M257.5 529V501L218 555.5L257.5 529Z" fill="white" class="MainShards_1"/>
+<path d="M232 489L208 483.5L212.5 492.5L232 489Z" fill="white" class="MainShards_3"/>
+<path d="M356.5 205L363.5 166.5L338 212.5L356.5 205Z" fill="white" class="MainShards_3"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M284.438 287H319.878L322.172 281.391L303.144 274.31L322.109 269H252.685L284.438 287ZM237.783 269H216.873H196.088L206.48 287L222.807 315.279L241.911 312.367L227.265 287H251.708L237.783 269ZM252.548 330.792L234.806 336.062L266.379 390.747C269.843 385.498 274.055 379.515 277.737 374.42L252.548 330.792ZM280.71 379.57L276.587 408.429L285 423L295.392 405L323.181 356.868L305.819 350.94L285 387L280.71 379.57ZM314.542 335.831L326.553 351.028L363.52 287L373.912 269H353.127H341.362L326.021 287H342.735L314.542 335.831Z" fill="white" />
+<path fill-rule="evenodd" clip-rule="evenodd" d="M284.438 287H319.878L322.172 281.391L303.144 274.31L322.109 269H252.685L284.438 287ZM237.783 269H216.873H196.088L206.48 287L222.807 315.279L241.911 312.367L227.265 287H251.708L237.783 269ZM252.548 330.792L234.806 336.062L266.379 390.747C269.843 385.498 274.055 379.515 277.737 374.42L252.548 330.792ZM280.71 379.57L276.587 408.429L285 423L295.392 405L323.181 356.868L305.819 350.94L285 387L280.71 379.57ZM314.542 335.831L326.553 351.028L363.52 287L373.912 269H353.127H341.362L326.021 287H342.735L314.542 335.831Z" fill="white" class="InsideTriangle"/>
+<path d="M210.5 335.5L225.5 327.5L216 323L210.5 335.5Z" fill="white" class="SubShards_1"/>
+<path d="M303 257.5L313 252L303 263V257.5Z" fill="white"
+class="SubShards_2"/>
+<path d="M254 298L258.5 290.5L270 286L258.5 298H254Z" fill="white" class="SubShards_2"/>
+<path d="M336.5 363.5L333.5 350.5L329.5 359L336.5 363.5Z" fill="white" class="SubShards_3"/>
+<path d="M273.5 397L258.5 389.5L263 397H273.5Z" fill="white" class="SubShards_4"/>
+<path d="M331.5 268.5L324.5 259.5L342.5 267L331.5 268.5Z" fill="white" class="SubShards_2"/>
+      <style>
+        <![CDATA[
+            @keyframes MainShards_1 {
+                0% {transform: translateY(0%); filter: blur(0px)}
+                25% {transform: translateY(1.25%)}
+                75% {transform: translateY(-1.25%);}
+                100% {transform: translateY(0%)}
+            }
+            @keyframes MainShards_2 {
+                0% {transform: translateY(0%); transform: translateX(0%);}
+                25% {transform: translateY(1%); transform: translateX(1%);}
+                75% {transform: translateY(-1%); transform: translateX(-1%);}
+                100% {transform: translateY(0%); transform: translateX(0%);}
+            }
+            @keyframes MainShards_3 {
+                0% {transform: translateY(0%); transform: translateX(0%)}
+                25% {transform: translateY(1%); transform: translateX(1%)}
+                75% {transform: translateY(-1%); transform: translateX(-1%)}
+                100% {transform: translateY(0%); transform: translateX(0%);}
+            }
+            @keyframes MainOuter {
+                0% {filter: blur(0px)}
+                50% {filter: blur(2px)}
+                100% {filter: blur(0px)}
+            }
+            @keyframes sub1 {
+                0% {transform: translateY(0%); transform: translateX(0%)}
+                25% {transform: translateY(1.25%); transform: translateX(1.25%)}
+                75% {transform: translateY(-1%); transform: translateX(-1%)}
+                100% {transform: translateY(0%); transform: translateX(0%)}
+            }
+            @keyframes sub3 {
+                0% {transform: translateY(0%); transform: translateX(0%)}
+                25% {transform: translateY(1.25%); transform: translateX(1.25%)}
+                75% {transform: translateY(-0.5%); transform: translateX(-0.5%)}
+                100% {transform: translateY(0%); transform: translateX(0%)}
+            } 
+            @keyframes sub2 {
+                0% {transform: translateY(0%);}
+                50% {transform: translateY(-1%);}
+                100% {transform: translateY(0%);}
+            }
+            path.MainShards_1 {
+                animation-name: MainShards_1;
+                animation-duration: 8s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                filter: drop-shadow(5px);
+            }
+            path.MainShards_2 {
+                animation-name: MainShards_2;
+                animation-duration: 8s;
+                animation-iteration-count: infinite;
+                animation-delay: -2s;
+                animation-direction: alternate;
+                animation-timing-function: linear;
+                filter: drop-shadow(5px);
+            }
+            path.MainShards_3 {
+                animation-name: MainShards_3;
+                animation-duration: 8s;
+                animation-delay: -1s;
+                animation-direction: reverse;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                filter: drop-shadow(5px);
+            }
+            path.MainOuter {
+                animation-name: MainOuter;
+                animation-duration: 6s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                filter: drop-shadow(5px);
+            }
+            path.InsideTriangle {
+                animation-name: MainOuter;
+                animation-duration: 6s;
+                animation-delay: 2s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                filter: drop-shadow(5px);
+            }
+            path.SubShards_1 {
+                animation: sub1;
+                animation-duration: 8s;
+                animation-iteration-count: infinite;
+                animation-delay: -1s;
+                filter: drop-shadow(5px);
+
+            }
+            path.SubShards_2 {
+                animation-name: sub2;
+                animation-duration: 8s;
+                animation-iteration-count: infinite;
+                animation-delay: -1s;
+                filter: drop-shadow(5px);
+            }
+            path.SubShards_2:nth-child(odd) {
+                animation-delay: 2s;
+                filter: drop-shadow(5px);
+            }
+            path.SubShards_2:nth-child(1) {
+                animation-delay: 0s;
+                filter: drop-shadow(5px);
+            }
+            path.SubShards_4 {
+                animation-name: sub2;
+                animation-duration: 8s;
+                animation-iteration-count: infinite;
+                animation-direction: normal;
+                filter: drop-shadow(5px);
+            }
+            path.SubShards_3 {
+                animation-name: sub3;
+                animation-duration: 8s;
+                animation-iteration-count: infinite;
+                animation-direction: normal;
+                filter: drop-shadow(5px);
+            }
+        ]]>
+      </style>  
+</svg>
